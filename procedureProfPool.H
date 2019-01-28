@@ -64,7 +64,7 @@ class Time;
 
 class procedureProfPool {
 
-	friend class loadManager;
+	friend class nSharma;
 	template<class T> friend class procedureProfTrigger;
 	friend class Operation;
 	friend class Section;

@@ -33,8 +33,8 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
-#ifndef loadManagerProf_H
-#define loadManagerProf_H
+#ifndef nSharmaFOAMOnlineProfiler_H
+#define nSharmaFOAMOnlineProfiler_H
 
 #include "procedureProfTrigger.H"
 

@@ -38,7 +38,7 @@
 #include "procedureProfInfo.H"
 
 #include "clockTime.H"
-#include "foamString.H"
+#include "string.H"
 #include "scalar.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

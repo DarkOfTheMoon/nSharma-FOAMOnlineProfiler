@@ -27,7 +27,7 @@
 #include "procedureProfInfo.H"
 //#include "fvMesh.H"
 #include "IOdictionary.H"
-#include "foamTime.H"
+#include "Time.H"
 #include "IOobjectList.H"
 
 using namespace Foam;
@@ -130,7 +130,7 @@ void Foam::procedureProfPool::initProfiling(Time& runTime, fvMesh& m,
 
 		procedureProfPool::rememberTimer(*master, thePool_->globalTime_);
 
-		IOdictionary loadManagerDict(IOobject("loadManagerDict", runTime.system(),
+		IOdictionary loadManagerDict(IOobject("nSharmaDict", runTime.system(),
 				runTime,
 				IOobject::MUST_READ, IOobject::NO_WRITE));
 

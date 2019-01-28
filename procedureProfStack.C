@@ -32,7 +32,7 @@
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
 Foam::procedureProfStack::procedureProfStack() :
-		timers_(), LIFOStack<procedureProfInfo*>() {
+		timers_(), std::vector<procedureProfInfo*>() {
 
 
 }
@@ -45,25 +45,25 @@ Foam::procedureProfStack::~procedureProfStack() {
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 
 Foam::procedureProfInfo &Foam::procedureProfStack::top() const {
-	return *LIFOStack<procedureProfInfo*>::top();
+	return *std::vector<procedureProfInfo*>::back();
 }
 
-Foam::procedureProfInfo &Foam::procedureProfStack::bottom() const {
-	return *LIFOStack<procedureProfInfo*>::bottom();
-}
+//Foam::procedureProfInfo &Foam::procedureProfStack::bottom() const {
+//	return *std::stack<procedureProfInfo*>::bottom();
+//}
 
 bool Foam::procedureProfStack::empty() const {
-	return LIFOStack<procedureProfInfo*>::empty();
+	return std::vector<procedureProfInfo*>::empty();
 }
 
 void Foam::procedureProfStack::push(procedureProfInfo &a) {
-	LIFOStack<procedureProfInfo*>::push(&a);
+	std::vector<procedureProfInfo*>::push_back(&a);
 	top().addedToStack();
 }
 
 Foam::procedureProfInfo &Foam::procedureProfStack::pop() {
 	top().removedFromStack();
-	return *LIFOStack<procedureProfInfo*>::pop();
+	std::vector<procedureProfInfo*>::pop_back();
 }
 
 void Foam::procedureProfStack::writeStackContents(Ostream &os) const {

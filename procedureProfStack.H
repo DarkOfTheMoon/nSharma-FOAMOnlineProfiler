@@ -35,10 +35,10 @@ SourceFiles
 #ifndef procedureProfStack_H
 #define procedureProfStack_H
 
-#include "LIFOStack.H"
+//#include "LIFOStack.H"
 #include "clockTime.H"
 #include <map>
-
+#include <vector>
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace Foam
@@ -55,7 +55,7 @@ namespace Foam
 
 class procedureProfStack
 :
-    private LIFOStack<procedureProfInfo *>
+    public std::vector<procedureProfInfo *>
 {
 
     // Private Member Functions
@@ -69,7 +69,7 @@ class procedureProfStack
     //- remember the timers for the correct stack-output
 
     //HashTable<clockTime *,label> timers_;
-      std::map<label, clockTime *> timers_;
+      std::map<int, clockTime *> timers_;
 
 protected:
     void writeStackContents(Ostream &) const;
@@ -91,7 +91,7 @@ public:
     // Members that encapsulate the original stack-class
     procedureProfInfo &top() const;
 
-    procedureProfInfo &bottom() const;
+    //procedureProfInfo &bottom() const;
 
     bool empty() const;
 
@@ -100,7 +100,7 @@ public:
     procedureProfInfo &pop();
 
     friend class procedureProfPool;
-    friend class loadManager;
+    friend class nSharma;
 };
 
 

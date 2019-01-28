@@ -48,7 +48,7 @@ class Ostream;
 class procedureProfStack;
 class procedureProfPool;
 class procedureProfInfo;
-class loadManager;
+class nSharma;
 class MPIfiedProcedure;
 
 #define PROF_INFO_MAIN_SECTION_NAME "full"
@@ -61,7 +61,7 @@ Ostream& operator<<(Ostream&, const procedureProfInfo&);
 
 class procedureProfInfo {
 
-	friend class loadManager;
+	friend class nSharma;
 
 	// Private data
 
